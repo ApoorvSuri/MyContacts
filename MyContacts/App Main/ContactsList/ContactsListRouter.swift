@@ -6,4 +6,18 @@
 //  Copyright © 2020 Apoorv Suri. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol ContactListRoutingLogic {
+    
+}
+
+protocol ContactListDataPassing {
+    var dataStore: ContactListDataStore? {get set}
+}
+
+class ContactsListRouter: ContactListRoutingLogic, ContactListDataPassing {
+    var dataStore: ContactListDataStore?
+    
+    weak var viewController: UIViewController?
+}
