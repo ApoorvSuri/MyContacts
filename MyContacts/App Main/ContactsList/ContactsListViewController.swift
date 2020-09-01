@@ -66,6 +66,7 @@ class ContactsListViewController: UIViewController, ContactListDisplayLogic {
         
         presenter.viewController = viewController
         router.viewController = viewController
+        router.dataStore = interactor
     }
     
     //MARK: - View Lifecycle
@@ -153,7 +154,7 @@ extension ContactsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        if isSearchActive {
+        if isSearchActive && contactsViewModel?.searchedContacts.count ?? 0 > 0 {
             cell.textLabel?.text = contactsViewModel?.searchedContacts[indexPath.row].name
             cell.detailTextLabel?.text =  contactsViewModel?.searchedContacts[indexPath.row].phoneNumbers?.first
         } else {

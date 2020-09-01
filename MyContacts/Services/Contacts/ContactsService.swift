@@ -50,19 +50,12 @@ protocol ContactsServiceProvider {
     func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void)
 }
 
-protocol ContactsServiceDelegate {
-    func didUpdate(contact: Contact)
-    func didDelete(contact: Contact)
-    func didCreate(contact: Contact)
-    func didFetch(contacts: [Contact])
-}
-
 class ContactsService: NSObject {
     
     static let shared = ContactsService()
     
-    var delegate: ContactsServiceDelegate?
-    
+    var recentContacts: [CNContact] = []
+
     private let contactStore: CNContactStore = CNContactStore()
     private let contactAttributes = [CNContactGivenNameKey, CNContactFamilyNameKey]
     
@@ -71,11 +64,13 @@ class ContactsService: NSObject {
     
     fileprivate var contactBeingUpdated: Contact?
     
-    
-    
     private override init() {
         super.init()
         addObserver()
+    }
+    
+    func getAllRecentContacts() -> [Contact] {
+        return recentContacts.compactMap({ Contact.init(contact: $0)})
     }
     
     public func requestForAccess(completionHandler: @escaping (_ accessGranted: Bool) -> Void) {
@@ -193,6 +188,12 @@ extension ContactsService {
     public func updateContact(contactID: String, completion: @escaping ((_ contact: Contact) -> Void)) {
         let keys = [CNContactFamilyNameKey, CNContactEmailAddressesKey, CNContactBirthdayKey, CNContactImageDataKey]
         if let contact = fetch(contactID: contactID) {
+            if let index = recentContacts.firstIndex(where: {$0.identifier == contact.identifier}) {
+                self.recentContacts.remove(at: index)
+                self.recentContacts.append(contact)
+            } else {
+                self.recentContacts.append(contact)
+            }
             contactBeingUpdated = Contact(contact: contact)
             updateContactHandler = completion
             

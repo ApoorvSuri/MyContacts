@@ -23,6 +23,11 @@
 		D161166124FD042A00A94BD9 /* ContactsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161166024FD042A00A94BD9 /* ContactsService.swift */; };
 		D161167324FD080300A94BD9 /* ContactListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161167224FD080300A94BD9 /* ContactListViewControllerTests.swift */; };
 		D161167524FD0E2A00A94BD9 /* ContactListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161167424FD0E2A00A94BD9 /* ContactListPresenterTests.swift */; };
+		D161167724FE665E00A94BD9 /* RecentsUseCases.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161167624FE665E00A94BD9 /* RecentsUseCases.swift */; };
+		D161167924FE667B00A94BD9 /* RecentsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161167824FE667B00A94BD9 /* RecentsInteractor.swift */; };
+		D161167B24FE668400A94BD9 /* RecentsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161167A24FE668400A94BD9 /* RecentsPresenter.swift */; };
+		D161167D24FE669600A94BD9 /* RecentsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161167C24FE669600A94BD9 /* RecentsRouter.swift */; };
+		D161167F24FE66A100A94BD9 /* RecentsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D161167E24FE66A100A94BD9 /* RecentsWorker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,11 @@
 		D161166A24FD074F00A94BD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D161167224FD080300A94BD9 /* ContactListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewControllerTests.swift; sourceTree = "<group>"; };
 		D161167424FD0E2A00A94BD9 /* ContactListPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListPresenterTests.swift; sourceTree = "<group>"; };
+		D161167624FE665E00A94BD9 /* RecentsUseCases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsUseCases.swift; sourceTree = "<group>"; };
+		D161167824FE667B00A94BD9 /* RecentsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsInteractor.swift; sourceTree = "<group>"; };
+		D161167A24FE668400A94BD9 /* RecentsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsPresenter.swift; sourceTree = "<group>"; };
+		D161167C24FE669600A94BD9 /* RecentsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsRouter.swift; sourceTree = "<group>"; };
+		D161167E24FE66A100A94BD9 /* RecentsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentsWorker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +178,11 @@
 			isa = PBXGroup;
 			children = (
 				D161164824FBAF2400A94BD9 /* RecentsViewController.swift */,
+				D161167A24FE668400A94BD9 /* RecentsPresenter.swift */,
+				D161167824FE667B00A94BD9 /* RecentsInteractor.swift */,
+				D161167C24FE669600A94BD9 /* RecentsRouter.swift */,
+				D161167E24FE66A100A94BD9 /* RecentsWorker.swift */,
+				D161167624FE665E00A94BD9 /* RecentsUseCases.swift */,
 			);
 			path = Recents;
 			sourceTree = "<group>";
@@ -325,15 +340,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D161167724FE665E00A94BD9 /* RecentsUseCases.swift in Sources */,
+				D161167B24FE668400A94BD9 /* RecentsPresenter.swift in Sources */,
 				D161165824FBB7EF00A94BD9 /* ContactsListWorker.swift in Sources */,
 				D161163F24FBADD200A94BD9 /* AppDelegate.swift in Sources */,
 				D161165B24FBEC7300A94BD9 /* UIWindow.swift in Sources */,
+				D161167D24FE669600A94BD9 /* RecentsRouter.swift in Sources */,
 				D161165024FBB7C400A94BD9 /* ContactsListUseCases.swift in Sources */,
 				D161165424FBB7DC00A94BD9 /* ContactsListPresenter.swift in Sources */,
 				D161164924FBAF2400A94BD9 /* RecentsViewController.swift in Sources */,
 				D161165224FBB7D300A94BD9 /* ContactsListInteractor.swift in Sources */,
 				D161166124FD042A00A94BD9 /* ContactsService.swift in Sources */,
 				D161165624FBB7E300A94BD9 /* ContactsListRouter.swift in Sources */,
+				D161167F24FE66A100A94BD9 /* RecentsWorker.swift in Sources */,
+				D161167924FE667B00A94BD9 /* RecentsInteractor.swift in Sources */,
 				D161164024FBADD200A94BD9 /* SceneDelegate.swift in Sources */,
 				D161164724FBAF0900A94BD9 /* ContactsListViewController.swift in Sources */,
 			);

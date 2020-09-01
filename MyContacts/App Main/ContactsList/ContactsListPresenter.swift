@@ -18,7 +18,7 @@ protocol ContactListPresentationLogic {
 
 class ContactListPresenter: ContactListPresentationLogic {
     
-    var viewController: ContactListDisplayLogic?
+    weak var viewController: ContactListDisplayLogic?
     
     func showContacts(_ response: ContactsListUseCases.ContactList.Response) {
         
